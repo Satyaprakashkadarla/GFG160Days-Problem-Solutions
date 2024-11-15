@@ -9,3 +9,8 @@
 ⚙️ Code Solutions in [Preferred Language(s)] ,
 📝 Intuitive Explanations for Clarity ,
 🔍 Test Cases and Analysis .
+
+👨‍💻 Why this repo?
+Consistency is key to success! This repository documents a journey of learning, discipline, and growth in the world of programming.
+💻 Tech Stack :
+🐍 Python | ☕ Java | 🖥️ C++ (or any other language you prefer!)

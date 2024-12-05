@@ -1,5 +1,10 @@
+Problem: Given an array arr[] containing only 0s, 1s, and 2s. Sort the array in ascending order.
+
+
+#logic for the problem
+arr is taken as input
+class Solution{
 public static int[] sort012(int[] arr) {
-        // code here
         int l=0,m=0,h=arr.length-1;
         while(m<=h){
             switch(arr[m]){
@@ -23,3 +28,4 @@ public static int[] sort012(int[] arr) {
         }
         return arr;
     }
+}

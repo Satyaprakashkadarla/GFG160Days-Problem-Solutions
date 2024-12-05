@@ -1,0 +1,25 @@
+public static int[] sort012(int[] arr) {
+        // code here
+        int l=0,m=0,h=arr.length-1;
+        while(m<=h){
+            switch(arr[m]){
+                case 0: 
+                    int temp=arr[l];
+                    arr[l]=arr[m];
+                    arr[m]=temp;
+                    l++;
+                    m++;
+                    break;
+                case 1:
+                    m++;
+                    break;
+                case 2:
+                    int t=arr[m];
+                    arr[m]=arr[h];
+                    arr[h]=t;
+                    h--;
+                    break;
+            }
+        }
+        return arr;
+    }

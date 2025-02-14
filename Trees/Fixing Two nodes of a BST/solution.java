@@ -1,28 +1,24 @@
 class Solution {
-    boolean findTarget(Node root, int target) {
-        if(root == null) {
-            return false;
+    Node first = null , second = null , prev = null;
+    void inorder(Node root) {
+        if(root==null) return;
+        inorder(root.left);
+        if(prev!=null && root.data<prev.data) {
+            if(first==null) {
+                first=prev;
+            }
+            second = root;
         }
-        return solve(root, root, target);
+        prev = root;
+        inorder(root.right);
     }
-
-    boolean solve(Node root, Node curr, int target) {
-        if(curr == null) {
-            return false;
+    void correctBST(Node root) {
+        prev = first = second = null;
+        inorder(root);
+        if(first!=null && second!=null) {
+            int temp = first.data;
+            first.data = second.data;
+            second.data = temp;
         }
-        return solve(root, curr.left, target) || solve(root, curr.right, target);
-    }
-
-    boolean findNode(Node root, int target, Node curr) {
-        if(root == null) {
-            return false;
-        }
-        if(root.data == target && root != curr) {  // Fixed the issue here
-            return true;
-        }
-        if(root.data > target) {
-            return findNode(root.left, target, curr);
-        }
-        return findNode(root.right, target, curr);
     }
 }

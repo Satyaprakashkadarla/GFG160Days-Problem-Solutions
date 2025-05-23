@@ -1,6 +1,6 @@
 # 📖 Data Structures & Algorithms Repository 🌐✨
 
-Welcome to the **Ultimate Data Structures & Algorithms Repository**! 🚀 Whether you're preparing for coding interviews, solving competitive programming challenges, or simply mastering the art of problem-solving, this collection has you covered. ❤️
+Welcome to the **Ultimate Data Structures & Algorithms Repository**! 🚀 Whether you're preparing for coding interviews, solving competitive programming challenges, or simply mastering the art of problem-solving, this collection has you covered.❤️
 
 ---
 

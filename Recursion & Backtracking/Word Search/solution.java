@@ -1,31 +1,41 @@
 class Solution {
-    static public boolean isWordExist(char[][] mat, String word) {
-        for(int i=0;i<mat.length;i++) {
-            for(int j=0;j<mat[0].length;j++) {
-                if(mat[i][j] == word.charAt(0)) {
-                    boolean[][] visit = new boolean[mat.length][mat[0].length];
-                    if(check(mat,i,j,0,word,visit))
-                    return true;
+    public boolean isWordExist(char[][] mat, String word) {
+        int n = mat.length;
+        int m = mat[0].length;
+        boolean[][] visited = new boolean[n][m];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (mat[i][j] == word.charAt(0)) {
+                    if (dfs(mat, word, i, j, 0, visited)) {
+                        return true;
+                    }
                 }
             }
         }
         return false;
     }
-    static boolean check(char[][]mat,int i,int j,int ind, String word, boolean[][] visit) {
-        if(ind == word.length()) {
+
+    private boolean dfs(char[][] mat, String word, int i, int j, int idx, boolean[][] visited) {
+        if (idx == word.length()) {
             return true;
         }
-        if(i < 0 || j < 0 || i>=mat.length || j>=mat[0].length || visit[i][j] || mat[i][j] != word.charAt(ind)) {
+
+        // boundary + character + visited check
+        if (i < 0 || j < 0 || i >= mat.length || j >= mat[0].length ||
+            visited[i][j] || mat[i][j] != word.charAt(idx)) {
             return false;
         }
-        visit[i][j] = true;
-        if(check(mat ,i, j-1, ind+1, word, visit) || 
-        check(mat , i,  j+1 ,  ind+1, word, visit) ||
-        check(mat ,i+1, j , ind+1, word, visit) ||
-        check(mat , i-1, j , ind+1, word, visit)) 
-            return true;
-        
-        visit[i][j] = false ;
-        return false;
+
+        visited[i][j] = true;
+
+        boolean found =
+            dfs(mat, word, i + 1, j, idx + 1, visited) ||
+            dfs(mat, word, i - 1, j, idx + 1, visited) ||
+            dfs(mat, word, i, j + 1, idx + 1, visited) ||
+            dfs(mat, word, i, j - 1, idx + 1, visited);
+
+        visited[i][j] = false; // backtrack
+        return found;
     }
 }
